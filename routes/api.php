@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 Route::post('login', [AuthController::class, 'login']);
 Route::post('register', [AuthController::class, 'register']);
 Route::middleware(['auth:api'])->group(function () {
+    Route::post('/logout', [AuthController::class, 'logout']);
     Route::post('transaction/deposit', [TransactionController::class, 'deposit']);
     Route::post('transaction/withdraw', [TransactionController::class, 'withdraw']);
     Route::post('game', [GameController::class, 'play']);

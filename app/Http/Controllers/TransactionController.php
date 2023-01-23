@@ -23,7 +23,7 @@ class TransactionController extends Controller
         $user->balance += $request->amount;
         $user->save();
 
-        return response()->json(['message' => 'Deposit successful'], 200);
+        return response()->json(['message' => 'Deposit successful', 'balance' => $user->balance], 200);
     }
 
 
@@ -44,7 +44,7 @@ class TransactionController extends Controller
         $user->balance -= $request->amount;
         $user->save();
 
-        return response()->json(['message' => 'Withdrawal successful'], 200);
+        return response()->json(['message' => 'Withdrawal successful', 'balance' => $user->balance], 200);
     }
 
 
